@@ -1,0 +1,18 @@
+﻿
+DiscordUI {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    opacity:0;
+    justify-content: center;
+
+    .container {
+        height:512px;
+        width:75%;
+        background-color:rgba(50, 50, 50, 0.5);
+    }
+
+    &.open {
+        opacity:1;
+    }
+}

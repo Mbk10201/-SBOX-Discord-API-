@@ -1,0 +1,31 @@
+{
+  "Title": "Discord API",
+  "Type": "library",
+  "Org": "eurorp",
+  "Ident": "discord_api_utility",
+  "Tags": null,
+  "Schema": 1,
+  "HasAssets": true,
+  "AssetsPath": "",
+  "ResourcePaths": null,
+  "HasCode": true,
+  "CodePath": ".",
+  "PackageReferences": [
+  ],
+  "EditorReferences": null,
+  "Metadata": {
+    "ProjectTemplate": null,
+    "CsProjName": "DiscordAPI",
+    "Summary": "Discord API Utility\n",
+    "Description": "Get discord in S\u0026Box :D\n\nYou can link a discord bot by is token and do everything as a bot do usually.\n\nSend messages, Get Channels, Get Guild, Get Clients, Send Embeds, Send Attachments.\n\nEvery functionality of the discord API is here.",
+    "Public": true,
+    "ReplaceTags": "discord roleplay facepunch darkrp french map api addon",
+    "Compiler": {
+      "RootNamespace": "DiscordAPI",
+      "DefineConstants": "SANDBOX;ADDON;DEBUG",
+      "NoWarn": "1701;1702;1591;",
+      "References": [],
+      "DistinctReferences": []
+    }
+  }
+}

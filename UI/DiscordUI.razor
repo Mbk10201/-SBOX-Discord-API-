@@ -1,0 +1,35 @@
+﻿@inherits Panel
+@attribute [StyleSheet("UI/scss/_root.scss")]
+@namespace DiscordAPI.UI
+
+<root>
+   <div class="container">
+
+   </div>
+</root>
+
+@code {
+    bool IsOpen = false;
+
+    protected override void OnAfterTreeRender(bool firstTime)
+    {
+        base.OnAfterTreeRender(firstTime);
+    }
+
+    [GameEvent.Client.BuildInput]
+    public void BuildInput()
+    {
+        if (!Game.IsServer && !Game.IsServerHost)
+            return;
+
+        if (Input.Pressed(InputButton.Slot0))
+            IsOpen = !IsOpen;
+
+        SetClass("open", IsOpen);
+    }
+
+    public override void Tick()
+    {
+        base.Tick();
+    }
+}
