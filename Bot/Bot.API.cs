@@ -21,7 +21,7 @@ public static partial class Bot
 		if ( Token == string.Empty )
 			return false;
 
-		var response = Http.RequestAsync( "GET", $"{Discord_ApiPoint}{APIVersion}/gateway", headers: GetHeaders() ).Result;
+		var response = Http.RequestAsync( "GET", $"{Discord_ApiPoint}/{APIVersion}/gateway", headers: GetHeaders() ).Result;
 
 		return (response.StatusCode == System.Net.HttpStatusCode.OK);
 	}
