@@ -29,7 +29,7 @@ public static partial class Bot
 		
 		string destination = $"channels/{channelid}/messages";
 
-		using var response = await Post( $"{Discord_ApiPoint}/{destination}", message );
+		using var response = await Post( destination, message );
 		response.EnsureSuccessStatusCode();
 	}
 }

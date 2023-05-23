@@ -28,13 +28,13 @@ public static partial class Bot
 
 	public static Task<T> Get<T>( string destination )
 	{
-		var url = $"{Discord_ApiPoint}{destination}";
+		var url = $"{Discord_ApiPoint}/{destination}";
 		return Http.RequestJsonAsync<T>( url, "GET", headers: GetHeaders() );
 	}
 
 	public static Task<HttpResponseMessage> Post<T>( string destination, T payload, Dictionary<string, string> Headers )
 	{
-		var url = $"{Discord_ApiPoint}{destination}";
+		var url = $"{Discord_ApiPoint}/{destination}";
 		var content = Http.CreateJsonContent( payload );
 		return Http.RequestAsync( "POST", url, content, Headers );
 	}
@@ -44,7 +44,7 @@ public static partial class Bot
 		if ( Token == string.Empty )
 			return null;
 
-		var url = $"{Discord_ApiPoint}{destination}";
+		var url = $"{Discord_ApiPoint}/{destination}";
 
 		var content = Http.CreateJsonContent( payload );
 		return Http.RequestAsync( "POST", url, content, GetHeaders() );
@@ -55,7 +55,7 @@ public static partial class Bot
 		if ( Token == string.Empty )
 			return null;
 
-		var url = $"{Discord_ApiPoint}{destination}";
+		var url = $"{Discord_ApiPoint}/{destination}";
 
 		return Http.RequestAsync( "POST", url, headers: GetHeaders() );
 	}
