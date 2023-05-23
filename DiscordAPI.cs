@@ -3,8 +3,6 @@ using DiscordAPI.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static Sandbox.Gizmo;
-using static Sandbox.Package;
 
 namespace DiscordAPI;
 
