@@ -1,4 +1,6 @@
-﻿using Sandbox;
+﻿using DiscordAPI.Models;
+using Sandbox;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -8,6 +10,7 @@ public class Settings
 {
 	public Settings()
 	{
+
 		if ( !FileSystem.OrganizationData.FileExists( "discord_settings.json" ) )
 			Save( this );
 		/*else
@@ -32,15 +35,5 @@ public class Settings
 	public static void Save(Settings settings)
 	{
 		FileSystem.OrganizationData.WriteJson( "discord_settings.json", settings );
-	}
-
-	public static void RegisterEvent( string eventName )
-	{
-
-	}
-
-	public bool IsEventEnabled( string eventName ) 
-	{
-		return true;
 	}
 }

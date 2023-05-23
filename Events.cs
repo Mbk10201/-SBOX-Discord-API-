@@ -1,17 +1,19 @@
 ﻿using DiscordAPI.Models;
 using Sandbox;
+using System.Collections.Generic;
 
 namespace DiscordAPI;
 
 public partial class DiscordAPI
 {
+	[RegisterDiscordEvent("Client Joined", "client_joined", "When a client join the server", "auth")]
 	[GameEvent.Server.ClientJoined]
 	public static void ClientJoined( ClientJoinedEvent e )
 	{
-		if ( !Settings.PlayerJoinEvent )
-			return;
+		/*if ( !Settings.PlayerJoinEvent )
+			return;*/
 
-		if( Settings.AsEmbed )
+		if ( Settings.AsEmbed )
 		{
 			if(API.IsTokenValid())
 			{
@@ -66,8 +68,8 @@ public partial class DiscordAPI
 	[GameEvent.Server.ClientDisconnect]
 	public static void ClientDisconnect( ClientDisconnectEvent e )
 	{
-		if ( !Settings.PlayerJoinEvent )
-			return;
+		/*if ( !Settings.PlayerJoinEvent )
+			return;*/
 
 		if ( Settings.AsEmbed )
 		{
@@ -80,7 +82,7 @@ public partial class DiscordAPI
 						new Embed()
 						{
 							Title = "Event Notification",
-							Description = $"{e.Client.Name} joined the server.",
+							Description = $"{e.Client.Name} has disconnected from the server.",
 							Color = 12713984
 						}
 					}
@@ -95,7 +97,7 @@ public partial class DiscordAPI
 						new Embed()
 						{
 							Title = "Event Notification",
-							Description = $"{e.Client.Name} joined the server.",
+							Description = $"{e.Client.Name} has disconnected from the server.",
 							Color = 12713984
 						}
 					}
@@ -108,14 +110,14 @@ public partial class DiscordAPI
 			{
 				Bot.SendMessage( 1110259447256842332, new MessageForm()
 				{
-					Content = $"{e.Client.Name} joined the server."
+					Content = $"{e.Client.Name} has disconnected from the server."
 				} );
 			}
 			else
 			{
 				Webhook.SendMessage( "https://discord.com/api/webhooks/1110297586721620020/oQfXNWLn0SgB4AtkGd2_1k28jtgPoP7G1dN9Gq3z_3sc54EIERDHtAQ7PQxhV3FU7fMY", new MessageForm()
 				{
-					Content = $"{e.Client.Name} joined the server."
+					Content = $"{e.Client.Name} has disconnected from the server."
 				} );
 			}
 		}
