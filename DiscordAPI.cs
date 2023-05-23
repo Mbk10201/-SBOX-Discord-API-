@@ -1,16 +1,16 @@
 ﻿using DiscordAPI.Models;
 using DiscordAPI.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using static Sandbox.Gizmo;
+using static Sandbox.Package;
 
 namespace DiscordAPI;
 
-public static partial class DiscordAPI
+public static partial class Discord
 {
-	public static Bot Bot { get; private set; }
-	public static Webhook Webhook { get; private set; }
-	public static Settings Settings { get; set; }
-	public static List<EventSettings> EventList { get; private set; } = new();
+	public static List<EventSettings> EventList { get; private set; }
 	//public static List<> Logs { get; private set; }
 
 	[GameEvent.Entity.PostSpawn]
@@ -18,14 +18,14 @@ public static partial class DiscordAPI
 	{
 		Log.Info( "Discord A.P.I [V1.0]" );
 
-		Settings = new Settings();
-		Bot = new( /*"MTExMDI1Nzc2ODI1MTgwMTc3MQ.GsD1Q5.HpskngoxHDVUb0BcBEwkJ0i8T4oP0IqDDl5KPs"*/ );
-		Webhook = new();
+		EventList = new();
+
+		Bot.Load();
 
 		if ( !FileSystem.OrganizationData.FileExists( "discord_events.json" ) )
 			SaveEvents();
 		else
-			LoadEvent();
+			LoadEvents();
 	}
 
 	[GameEvent.Client.Frame]
@@ -37,17 +37,34 @@ public static partial class DiscordAPI
 
 	public static void RegisterEvent( EventSettings eventsettings )
 	{
-		EventList.Add( eventsettings );
+		EventList?.Add( eventsettings );
 		SaveEvents();
 	}
 
-	public static void LoadEvent()
+	public static void LoadEvents()
 	{
-		var data = FileSystem.OrganizationData.ReadJson<List<EventSettings>>( "discord_events.json" );
+		EventList = FileSystem.OrganizationData.ReadJson<List<EventSettings>>( "discord_events.json" );
+
+		foreach ( var method in TypeLibrary.GetMethodsWithAttribute<RegisterDiscordEvent>())
+		{
+			if ( !EventList.Exists( x => x.Identifier == method.Attribute.Identifier ) )
+			{
+				RegisterEvent( new()
+				{
+					Identifier = method.Attribute.Identifier,
+					Name = method.Attribute.Name,
+					Description = method.Attribute.Description,
+					Category = method.Attribute.Category
+				} );
+			}
+			else
+				continue;
+		}
 	}
 
 	public static void SaveEvents( )
 	{
 		FileSystem.OrganizationData.WriteJson( "discord_events.json", EventList );
+		LoadEvents();
 	}
 }

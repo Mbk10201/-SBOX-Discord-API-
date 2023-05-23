@@ -6,35 +6,32 @@ using System.Threading.Tasks;
 
 namespace DiscordAPI;
 
-public partial class Bot
+public static partial class Bot
 {
-	public static Bot Instance { get; private set; }
-	public string Token { get; private set; }
+	public static string Token { get; private set; } = string.Empty;
 
-	public Bot( string _token = "" )
+	public static void Load()
 	{
-		Instance = this;
-		Token = _token;
+		var path = FileSystem.OrganizationData;
+
+		if ( !path.FileExists( "discord_bot_token.txt" ) )
+			path.WriteAllText( "discord_bot_token.txt", "PUT TOKEN HERE" );
+		else
+			Token = path.ReadAllText( "discord_bot_token.txt" );
 	}
-
-	public static Dictionary<string, string> GetHeaders() => new ()
-	{
-		{ "Content-Type", "application/json" },
-		{ "Authorization", $"Bot {Instance.Token}" }
-	};
 
 	public static async Task<List<Message>> GetChannelMessages( long channelid ) => await Channel.GetMessages( channelid );
 	public static async Task<Message> GetChannelMessage( long channelid, long messageid ) => await Channel.GetMessage( channelid, messageid );
 
-	[ConCmd.Server]
-	public static void GetChannelMessages()
+	/*[ConCmd.Server]
+	public static void GetChannelMessages( int channelid )
 	{
-		List<Message> Messages = GetChannelMessages( 1110259447256842332 ).Result;
+		List<Message> Messages = GetChannelMessages( 454245554 ).Result;
 		Log.Info( Messages );
 
 		foreach(var msg in Messages )
 		{
 			Log.Info( $"{msg.Content} \n {msg.Author}" );
 		}
-	}
+	}*/
 }

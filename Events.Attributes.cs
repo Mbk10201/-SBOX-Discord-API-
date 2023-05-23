@@ -3,7 +3,7 @@ using Sandbox;
 
 namespace DiscordAPI;
 
-public partial class DiscordAPI
+public static partial class Discord
 {
 	//---------------------------------------------------------------------
 

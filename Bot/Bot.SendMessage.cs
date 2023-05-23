@@ -6,21 +6,22 @@ using System.Threading.Tasks;
 
 namespace DiscordAPI;
 
-public partial class Bot
+public static partial class Bot
 {
 	/// <summary>
 	/// Send a message to a discord server channel by a ID
+	/// <param name="token">The channelid</param>
 	/// <param name="channelid">The channelid</param>
 	/// <param name="message">The message object</param>
 	/// </summary>
-	public async void SendMessage( long channelid, MessageForm message )
+	public static async void SendMessage( long channelid, MessageForm message )
 	{
 		await Send(channelid, message);
 	}
 
 	private static async Task Send( long channelid, MessageForm message )
 	{
-		if(!API.IsTokenValid())
+		if(!IsTokenValid( ) )
 		{
 			Log.Info( "[DISCORD-API] Bot token is null, please provide one to be able to send message" );
 			return;
@@ -28,7 +29,7 @@ public partial class Bot
 		
 		string destination = $"channels/{channelid}/messages";
 
-		using var response = await API.Post( $"{API.Discord_ApiPoint}/{destination}", message );
+		using var response = await Post( $"{Discord_ApiPoint}/{destination}", message );
 		response.EnsureSuccessStatusCode();
 	}
 }

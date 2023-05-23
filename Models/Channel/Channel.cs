@@ -229,13 +229,13 @@ public class Channel
 	{
 		string destination = $"channels/{channelid}/messages";
 
-		return await API.Get<List<Message>>( $"{API.Discord_ApiPoint}/{destination}" );
+		return await Bot.Get<List<Message>>( destination );
 	}
 
 	public static async Task<Message> GetMessage( long channelid, long messageid )
 	{
 		string destination = $"channels/{channelid}/messages/{messageid}";
 
-		return await API.Get<Message>( $"{API.Discord_ApiPoint}/{destination}" );
+		return await Bot.Get<Message>( destination );
 	}
 }

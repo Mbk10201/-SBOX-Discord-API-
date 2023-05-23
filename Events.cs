@@ -1,124 +1,122 @@
 ﻿using DiscordAPI.Models;
 using Sandbox;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DiscordAPI;
 
-public partial class DiscordAPI
+public static partial class Discord
 {
 	[RegisterDiscordEvent("Client Joined", "client_joined", "When a client join the server", "auth")]
 	[GameEvent.Server.ClientJoined]
 	public static void ClientJoined( ClientJoinedEvent e )
 	{
-		/*if ( !Settings.PlayerJoinEvent )
-			return;*/
+		var EventSettings = EventList.Single( x => x.Identifier == "client_joined" );
 
-		if ( Settings.AsEmbed )
+		if ( !EventSettings.Broadcast )
+			return;
+
+		if ( EventSettings.DisplayEmbed )
 		{
-			if(API.IsTokenValid())
+			var message = new MessageForm()
 			{
-				Bot.SendMessage( 1110259447256842332, new MessageForm()
+				Embeds = new()
 				{
-					Embeds = new()
+					new Embed()
 					{
-						new Embed()
-						{
-							Title = "Event Notification",
-							Description = $"{e.Client.Name} joined the server.",
-							Color = 12713984
-						}
+						Title = EventSettings.Name,
+						Description = $"{e.Client.Name} joined the server.",
+						Color = EventSettings.GetColor()
 					}
-				} );
+				}
+			};
+
+			if (EventSettings.UseAsBot && Bot.IsTokenValid())
+			{
+				Bot.SendMessage( EventSettings.ChannelID.Value, message);
 			}
 			else
 			{
-				Webhook.SendMessage( "https://discord.com/api/webhooks/1110297586721620020/oQfXNWLn0SgB4AtkGd2_1k28jtgPoP7G1dN9Gq3z_3sc54EIERDHtAQ7PQxhV3FU7fMY", new MessageForm()
-				{
-					Embeds = new()
-					{
-						new Embed()
-						{
-							Title = "Event Notification",
-							Description = $"{e.Client.Name} joined the server.",
-							Color = 12713984
-						}
-					}
-				} );
+				if ( EventSettings.Webhook == string.Empty )
+					return;
+				
+				Webhook.SendMessage( EventSettings.Webhook, message);
 			}
 		}
 		else
 		{
-			if ( API.IsTokenValid() )
+			var message = new MessageForm()
 			{
-				Bot.SendMessage( 1110259447256842332, new MessageForm()
-				{
-					Content = $"{e.Client.Name} joined the server."
-				} );
+				Content = $"{e.Client.Name} joined the server."
+			};
+
+			if ( EventSettings.UseAsBot && Bot.IsTokenValid() )
+			{
+				Bot.SendMessage( EventSettings.ChannelID.Value, message);
 			}
 			else
 			{
-				Webhook.SendMessage( "https://discord.com/api/webhooks/1110297586721620020/oQfXNWLn0SgB4AtkGd2_1k28jtgPoP7G1dN9Gq3z_3sc54EIERDHtAQ7PQxhV3FU7fMY", new MessageForm()
-				{
-					Content = $"{e.Client.Name} joined the server."
-				} );
+				if ( EventSettings.Webhook == string.Empty )
+					return;
+
+				Webhook.SendMessage( EventSettings.Webhook, message );
 			}
 		}
 	}
 
+	[RegisterDiscordEvent( "Client Disconnect", "client_disconnect", "When a client leave the server", "auth" )]
 	[GameEvent.Server.ClientDisconnect]
 	public static void ClientDisconnect( ClientDisconnectEvent e )
 	{
-		/*if ( !Settings.PlayerJoinEvent )
-			return;*/
+		var EventSettings = EventList.Single( x => x.Identifier == "client_joined" );
 
-		if ( Settings.AsEmbed )
+		if ( !EventSettings.Broadcast )
+			return;
+
+		if ( EventSettings.DisplayEmbed )
 		{
-			if ( API.IsTokenValid() )
+			var message = new MessageForm()
 			{
-				Bot.SendMessage( 1110259447256842332, new MessageForm()
+				Embeds = new()
 				{
-					Embeds = new()
+					new Embed()
 					{
-						new Embed()
-						{
-							Title = "Event Notification",
-							Description = $"{e.Client.Name} has disconnected from the server.",
-							Color = 12713984
-						}
+						Title = EventSettings.Name,
+						Description = $"{e.Client.Name} has disconnected from the server.",
+						Color = EventSettings.GetColor()
 					}
-				} );
+				}
+			};
+
+			if ( EventSettings.UseAsBot && Bot.IsTokenValid() )
+			{
+				Bot.SendMessage( EventSettings.ChannelID.Value, message );
 			}
 			else
 			{
-				Webhook.SendMessage( "https://discord.com/api/webhooks/1110297586721620020/oQfXNWLn0SgB4AtkGd2_1k28jtgPoP7G1dN9Gq3z_3sc54EIERDHtAQ7PQxhV3FU7fMY", new MessageForm()
-				{
-					Embeds = new()
-					{
-						new Embed()
-						{
-							Title = "Event Notification",
-							Description = $"{e.Client.Name} has disconnected from the server.",
-							Color = 12713984
-						}
-					}
-				} );
+				if ( EventSettings.Webhook == string.Empty )
+					return;
+
+				Webhook.SendMessage( EventSettings.Webhook, message );
 			}
 		}
 		else
 		{
-			if ( API.IsTokenValid() )
+			var message = new MessageForm()
 			{
-				Bot.SendMessage( 1110259447256842332, new MessageForm()
-				{
-					Content = $"{e.Client.Name} has disconnected from the server."
-				} );
+				Content = $"{e.Client.Name} has disconnected from the server"
+			};
+
+			if ( EventSettings.UseAsBot && Bot.IsTokenValid() )
+			{
+				Bot.SendMessage( EventSettings.ChannelID.Value, message );
 			}
 			else
 			{
-				Webhook.SendMessage( "https://discord.com/api/webhooks/1110297586721620020/oQfXNWLn0SgB4AtkGd2_1k28jtgPoP7G1dN9Gq3z_3sc54EIERDHtAQ7PQxhV3FU7fMY", new MessageForm()
-				{
-					Content = $"{e.Client.Name} has disconnected from the server."
-				} );
+				if ( EventSettings.Webhook == string.Empty )
+					return;
+
+				Webhook.SendMessage( EventSettings.Webhook, message );
 			}
 		}
 	}

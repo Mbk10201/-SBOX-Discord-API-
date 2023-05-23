@@ -1,4 +1,6 @@
-﻿using System.Text.Json;
+﻿using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace DiscordAPI.Utility;
 
@@ -29,4 +31,9 @@ internal static class Json
 		return JsonSerializer.Deserialize<T>( str, options );
 	}
 
+	public static async Task<T> ReadFromJson<T>( HttpResponseMessage response )
+	{
+		var json = await response.Content.ReadAsStreamAsync();
+		return JsonSerializer.Deserialize<T>( json );
+	}
 }
