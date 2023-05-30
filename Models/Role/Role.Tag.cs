@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DiscordAPI.Models;
+namespace Discord.Models;
 
 public class RoleTag
 {
@@ -8,13 +8,13 @@ public class RoleTag
 	/// The id of the bot this role belongs to
 	/// </summary>
 	[JsonPropertyName( "bot_id" )]
-	public long? BotID { get; set; }
+	public object BotID { get; set; } = null;
 
 	/// <summary>
 	/// The id of the integration this role belongs to
 	/// </summary>
 	[JsonPropertyName( "integration_id" )]
-	public long? IntegrationID { get; set; }
+	public object IntegrationID { get; set; } = null;
 
 	/// <summary>
 	/// Whether this is the guild's Booster role
@@ -26,7 +26,7 @@ public class RoleTag
 	///	The id of this role's subscription sku and listing
 	/// </summary>
 	[JsonPropertyName( "subscription_listing_id" )]
-	public long? SubscriptionListing { get; set; }
+	public object SubscriptionListing { get; set; } = null;
 
 	/// <summary>
 	///	Whether this role is available for purchase

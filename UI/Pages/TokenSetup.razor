@@ -1,0 +1,64 @@
+﻿@inherits Panel
+@page "/tokensetup"
+@namespace Discord.UI
+
+<root>
+    <header>
+        <h1>Token setup</h1>
+        <p>Here you can setup your discord bot token</p>
+    </header>
+    <body>
+        @if (Client.IsClientLogged() || TokenEntry is not null && Client.IsRegexValid(TokenEntry.Text) && TokenEntry.Text.Length == 72)
+        {
+            <i class="good">check</i>
+            <span style="color:#7289da;">The token is valid and ready to use, hit save once</span>
+        }
+        else
+        {
+            <i class="error">warning</i>
+            <span>The token is not valid</span>
+
+            if (TokenEntry is not null && TokenEntry.Text.Length > 72)
+            {
+                <span>The max length of token should be of <span style="color:dodgerblue;margin-left:5px;">72</span></span>
+            }
+        }
+
+        <textentry class="textentry" @ref="TokenEntry"></textentry>
+
+        <button class="submit" @onclick=@(() => Save())>Save</button>
+    </body>
+</root>
+
+@code {
+    TextEntry TokenEntry;
+
+    public TokenSetup()
+    {
+        if(TokenEntry != null)
+            TokenEntry.Text = Client.Instance.Token;
+    }
+
+    protected override void OnAfterTreeRender(bool firstTime)
+    {
+        base.OnAfterTreeRender(firstTime);
+
+        if (firstTime)
+        {
+            TokenEntry.Text = Client.Instance.Token;
+        }
+    }
+
+    private void Save()
+    {
+        if (string.IsNullOrWhiteSpace(TokenEntry.Text))
+            return;
+
+        Client.SetToken(TokenEntry.Text);
+    }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine(DateTime.Now.ToString());
+    }
+}

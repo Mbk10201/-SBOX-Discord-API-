@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Discord.Models;
 using System.Net.Http;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
-namespace DiscordAPI;
+namespace Discord;
 
-public static partial class Bot
+public partial class Client
 {
 	public const string Discord_ApiPoint = "https://discord.com/api";
 	public const string APIVersion = "v10";
@@ -13,17 +12,32 @@ public static partial class Bot
 	public static Dictionary<string, string> GetHeaders() => new()
 	{
 		{ "Content-Type", "application/json" },
-		{ "Authorization", $"Bot {Token}" }
+		{ "Authorization", $"Bot {Instance.Token}" }
 	};
 
-	public static bool IsTokenValid()
+	private static bool IsTokenValid()
 	{
-		if ( Token == string.Empty )
+		if ( Instance.Token == string.Empty )
 			return false;
 
-		var response = Http.RequestAsync( "GET", $"{Discord_ApiPoint}/{APIVersion}/gateway", headers: GetHeaders() ).Result;
+		if (Instance.Token.Length > 72)
+			return false;
 
-		return (response.StatusCode == System.Net.HttpStatusCode.OK);
+		if ( IsRegexValid( Instance.Token ) )
+			return false;
+		else
+			return true;
+	}
+
+	public static bool IsRegexValid(string token)
+	{
+		string pattern = @"[A-Za-z\d]{24}\.[A-Za-z\d-_]{6}\.[A-Za-z\d-_]{27}";
+
+		Match match = Regex.Match( token, pattern );
+		if ( !match.Success )
+			return false;
+		else
+			return true;
 	}
 
 	public static Task<T> Get<T>( string destination )
@@ -41,7 +55,7 @@ public static partial class Bot
 
 	public static Task<HttpResponseMessage> Post<T>( string destination, T payload )
 	{
-		if ( Token == string.Empty )
+		if ( Instance.Token == string.Empty )
 			return null;
 
 		var url = $"{Discord_ApiPoint}/{destination}";
@@ -52,7 +66,7 @@ public static partial class Bot
 
 	public static Task<HttpResponseMessage> Post<T>( string destination )
 	{
-		if ( Token == string.Empty )
+		if ( Instance.Token == string.Empty )
 			return null;
 
 		var url = $"{Discord_ApiPoint}/{destination}";

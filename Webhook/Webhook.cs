@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace DiscordAPI;
+﻿namespace Discord;
 
 public static partial class Webhook
 {

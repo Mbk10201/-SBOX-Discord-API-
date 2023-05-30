@@ -1,10 +1,9 @@
 ﻿using System.Net.Http;
 using System.Text.Json;
-using System.Threading.Tasks;
 
-namespace DiscordAPI.Utility;
+namespace Discord.Utility;
 
-internal static class Json
+internal static class JsonUtility
 {
 	public static string Serialize( this object obj )
 	{

@@ -1,8 +1,6 @@
-﻿using DiscordAPI.Enums;
-using System.Collections.Generic;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace DiscordAPI.Models;
+namespace Discord.Models;
 
 public class AllowedMentions
 {

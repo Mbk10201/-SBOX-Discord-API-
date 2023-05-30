@@ -1,10 +1,6 @@
-﻿using DiscordAPI.Models;
-using DiscordAPI.Utility;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using Discord.Models;
 
-namespace DiscordAPI;
+namespace Discord;
 
 public static partial class Webhook
 {

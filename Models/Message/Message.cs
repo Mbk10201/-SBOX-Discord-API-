@@ -1,9 +1,9 @@
-﻿using DiscordAPI.Enums;
+﻿using Discord.Enums;
 using Sandbox;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace DiscordAPI.Models;
+namespace Discord.Models;
 
 public class Message
 {
@@ -11,13 +11,13 @@ public class Message
 	/// The id of the message
 	/// </summary>
 	[JsonPropertyName( "id" )]
-	public long Id { get; set; }
+	public object Id { get; set; }
 
 	/// <summary>
 	/// The id of the channel the message was sent in
 	/// </summary>
 	[JsonPropertyName( "channel_id" )]
-	public long ChannelID { get; set; }
+	public object ChannelID { get; set; }
 
 	/// <summary>
 	/// The author of this message (not guaranteed to be a valid user, see below)
@@ -30,7 +30,7 @@ public class Message
 	/// </summary>
 	[JsonPropertyName( "content" )]
 	public string Content { get; set; }
-
+	
 	/// <summary>
 	/// 	when this message was sent
 	/// </summary>
@@ -71,25 +71,25 @@ public class Message
 	/// Any attached files
 	/// </summary>
 	[JsonPropertyName( "attachments" )]
-	public List<Attachment> Attachments { get; set; }
+	public List<Attachment> Attachments { get; set; } = null;
 
 	/// <summary>
 	/// Any embedded content
 	/// </summary>
 	[JsonPropertyName( "embeds" )]
-	public List<Embed> Embeds { get; set; }
+	public List<Embed> Embeds { get; set; } = null;
 
 	/// <summary>
 	/// Reactions to the message
 	/// </summary>
 	[JsonPropertyName( "reactions" )]
-	public List<Reaction> Reactions { get; set; }
+	public List<Reaction> Reactions { get; set; } = null;
 
 	/// <summary>
 	/// Used for validating a message was sent
 	/// </summary>
 	[JsonPropertyName( "nonce" )]
-	public string Nonce { get; set; } = string.Empty;
+	public string Nonce { get; set; } = null;
 
 	/// <summary>
 	/// Whether this message is pinned
@@ -113,7 +113,7 @@ public class Message
 	/// Sent with Rich Presence-related chat embeds
 	/// </summary>
 	[JsonPropertyName( "activity" )]
-	public MessageActivity Activity { get; set; }
+	public MessageActivity Activity { get; set; } = null;
 
 	/// <summary>
 	/// Sent with Rich Presence-related chat embeds
@@ -125,7 +125,7 @@ public class Message
 	/// If the message is an Interaction or application-owned webhook, this is the id of the application
 	/// </summary>
 	[JsonPropertyName( "application_id" )]
-	public long ApplicationID { get; set; }
+	public long? ApplicationID { get; set; }
 
 	/// <summary>
 	/// If the message is an Interaction or application-owned webhook, this is the id of the application
@@ -180,11 +180,4 @@ public class Message
 	/// </summary>
 	[JsonPropertyName( "role_subscription_data" )]
 	public RoleSubscriptionData RoleSubscriptionData { get; set; } = null;
-
-	public Message()
-	{
-		Mentions = new();
-		MentionRoles = new();
-		Attachments = new();
-	}
 }

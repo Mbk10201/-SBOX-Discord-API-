@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Net.Http;
 
-namespace DiscordAPI;
+namespace Discord;
 
 public static partial class Webhook
 {

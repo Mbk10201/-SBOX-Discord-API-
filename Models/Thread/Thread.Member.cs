@@ -1,7 +1,7 @@
 ﻿using Sandbox;
 using System.Text.Json.Serialization;
 
-namespace DiscordAPI.Models;
+namespace Discord.Models;
 
 public class ThreadMember
 {

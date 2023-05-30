@@ -1,16 +1,11 @@
-﻿using DiscordAPI.Models;
-using DiscordAPI.Utility;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using Discord.Models;
 
-namespace DiscordAPI;
+namespace Discord;
 
-public static partial class Bot
+public partial class Client
 {
 	/// <summary>
 	/// Send a message to a discord server channel by a ID
-	/// <param name="token">The channelid</param>
 	/// <param name="channelid">The channelid</param>
 	/// <param name="message">The message object</param>
 	/// </summary>

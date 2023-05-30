@@ -1,4 +1,4 @@
-﻿namespace DiscordAPI.Enums;
+﻿namespace Discord.Enums;
 
 public enum MessageTypes
 {

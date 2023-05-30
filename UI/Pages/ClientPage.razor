@@ -1,0 +1,79 @@
+﻿@inherits Panel
+@page "/client"
+@namespace Discord.UI
+@using Discord.Models;
+@using static Discord.Client;
+
+<root>
+    @if (Guild is null)
+        return;
+
+    <header>
+        <h1>Client</h1>
+        <p>Live websocket informations</p>
+    </header>
+    <body>
+        @if (Client.IsClientLogged())
+        {
+            <div class="servername">@Guild.Name</div>
+            <div class="cards">
+                <div class="card">
+                    <div class="header">
+                        Channels
+                    </div>
+                    <div class="body">
+                        @foreach (var channel in Guild.Channels)
+                        {
+                            <div class="item">
+                                @channel.Name
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        Users
+                    </div>
+                    <div class="body">
+                        <div class="item">
+                            MbK
+                        </div>
+                        <div class="item">
+                            Toubie
+                        </div>
+                        <div class="item">
+                            Wiktoria
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="offline">
+                Client OFFLINE
+            </div>
+        }
+    </body>
+</root>
+
+@code {
+    Guild Guild;
+
+    protected override void OnAfterTreeRender(bool firstTime)
+    {
+        base.OnAfterTreeRender(firstTime);
+
+        if (firstTime)
+        {
+            Guild = Client.Instance?.Guild;
+
+            foreach (var channel in Guild.Channels)
+            {
+                Log.Info(channel);
+                Log.Info(channel.Id);
+                Log.Info(channel.Name);
+            }
+        }
+    }
+}

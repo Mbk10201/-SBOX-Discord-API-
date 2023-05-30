@@ -1,19 +1,63 @@
-﻿@inherits Panel
-@attribute [StyleSheet("UI/scss/_root.scss")]
-@namespace DiscordAPI.UI
+﻿@inherits NavigatorPanel
+@attribute [StyleSheet("scss/root.scss")]
+@namespace Discord.UI
+@using Discord.UI.Utils
 
 <root>
-   <div class="container">
+    <div class="container">
+        <div class="wrapper"></div>
+        <div class="close">
+            <i @onclick=@(()=> IsOpen = false)>close</i>
+        </div>
+        <div class="sidenav @(Sidenav ? "opened" : "")">
+            <div class="header">
+                <img src="assets/images/discord_thumb.png" />
+                <i @onclick=@(()=> Sidenav = !Sidenav)>@(Sidenav ? "chevron_left" : "menu")</i>
+            </div>
+            <div class="navs">
+                <a tooltip="Home page" href="/home">
+                    <i>home</i>
+                    <span>Home</span>
+                </a>
+                <a tooltip="Events page" href="/events">
+                    <i>celebration</i>
+                    <span>Events</span>
+                </a>
+                <a tooltip="Token page" href="/tokensetup">
+                    <i>login</i>
+                    <span>Token setup</span>
+                </a>
+                <a tooltip="Client page" href="/client">
+                    <i style="color: @(Client.IsClientLogged() ? "#39ffa0": "crimson")">settings_input_antenna</i>
+                    <span>Client</span>
+                </a>
+            </div>
 
-   </div>
+            <div class="copyright">
+                <span>Made by MbK with</span> <i style="color:crimson;">favorite</i>
+            </div>
+        </div>
+        <div class="content" slot="navigator-canvas"></div>
+    </div>
 </root>
 
 @code {
     bool IsOpen = false;
+    bool Sidenav = true;
+
+    public DiscordUI()
+    {
+        DefaultUrl = "/home";
+    }
 
     protected override void OnAfterTreeRender(bool firstTime)
     {
         base.OnAfterTreeRender(firstTime);
+
+        if(firstTime)
+        {
+            DefaultUrl = "/home";
+        }
     }
 
     [GameEvent.Client.BuildInput]
@@ -22,7 +66,7 @@
         if (!Game.IsServer && !Game.IsServerHost)
             return;
 
-        if (Input.Pressed(InputButton.Slot0))
+        if (Input.Pressed("slot9"))
             IsOpen = !IsOpen;
 
         SetClass("open", IsOpen);
@@ -31,5 +75,10 @@
     public override void Tick()
     {
         base.Tick();
+    }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine(DateTime.Now.ToString());
     }
 }

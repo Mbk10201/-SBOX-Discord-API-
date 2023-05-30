@@ -1,17 +1,17 @@
-﻿using DiscordAPI.Enums;
-using Sandbox;
-using System.Collections.Generic;
+﻿using Discord.Enums;
 using System.Text.Json.Serialization;
 
-namespace DiscordAPI.Models;
+namespace Discord.Models;
 
 public class Application
 {
+	// According to the discord doc (https://discord.com/developers/docs/resources/application#application-object)
+
 	/// <summary>
 	/// The id of the app
 	/// </summary>
 	[JsonPropertyName( "id" )]
-	public long Id { get; set; }
+	public object Id { get; set; }
 
 	/// <summary>
 	/// The name of the app
@@ -83,13 +83,13 @@ public class Application
 	/// If this application is a game sold on Discord, this field will be the guild to which it has been linked
 	/// </summary>
 	[JsonPropertyName( "guild_id" )]
-	public long GuildID { get; set; }
+	public object GuildID { get; set; } = null;
 
 	/// <summary>
 	/// If this application is a game sold on Discord, this field will be the id of the "Game SKU" that is created, if exists
 	/// </summary>
 	[JsonPropertyName( "primary_sku_id" )]
-	public long? PrimarySkuID { get; set; }
+	public object PrimarySkuID { get; set; } = null;
 
 	/// <summary>
 	/// If this application is a game sold on Discord, this field will be the URL slug that links to the store page

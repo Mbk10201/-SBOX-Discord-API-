@@ -1,7 +1,7 @@
-﻿using DiscordAPI.Enums;
+﻿using Discord.Enums;
 using System.Text.Json.Serialization;
 
-namespace DiscordAPI.Models;
+namespace Discord.Models;
 
 public class VoiceRegion
 {

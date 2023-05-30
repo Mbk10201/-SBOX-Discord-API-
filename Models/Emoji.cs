@@ -1,16 +1,16 @@
-﻿using DiscordAPI.Enums;
-using System.Collections.Generic;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace DiscordAPI.Models;
+namespace Discord.Models;
 
 public class Emoji
 {
+	// According to the discord docs (https://discord.com/developers/docs/resources/emoji)
+
 	/// <summary>
 	/// Emoji id
 	/// </summary>
 	[JsonPropertyName( "id" )]
-	public long? Id { get; set; }
+	public object Id { get; set; } = null;
 
 	/// <summary>
 	/// Emoji name

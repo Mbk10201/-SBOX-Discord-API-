@@ -1,32 +1,32 @@
-﻿using DiscordAPI.Enums;
-using System.Collections.Generic;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace DiscordAPI.Models;
+namespace Discord.Models;
 
-public class Overwrite
+public partial class Overwrite : BaseNetworkable
 {
+	// https://discord.com/developers/docs/resources/channel#overwrite-object
+
 	/// <summary>
 	///	Role or user id
 	/// </summary>
 	[JsonPropertyName( "id" )]
-	public long Id { get; set; }
+	[Net] public string Id { get; set; }
 
 	/// <summary>
 	/// Either 0 (role) or 1 (member)
 	/// </summary>
 	[JsonPropertyName( "type" )]
-	public int Type { get; set; }
+	[Net] public string Type { get; set; }
 
 	/// <summary>
 	/// Permission bit set
 	/// </summary>
 	[JsonPropertyName( "roles" )]
-	public string Allow { get; set; }
+	[Net] public string Allow { get; set; }
 
 	/// <summary>
 	/// Permission bit set
 	/// </summary>
 	[JsonPropertyName( "deny" )]
-	public string Deny { get; set; }
+	[Net] public ulong Deny { get; set; }
 }

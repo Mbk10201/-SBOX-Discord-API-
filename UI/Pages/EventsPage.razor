@@ -1,0 +1,82 @@
+﻿@inherits Panel
+@page "/events"
+@namespace Discord.UI
+@using Discord.Models;
+
+<root>
+    @if (IsExpanded is null)
+        return;
+
+    <header>
+        <h1>Events management</h1>
+        <p>Configure the events at your taste</p>
+    </header>
+    <body>
+        @foreach (var item in DiscordSystem.GetGameEventList())
+        {
+            if(!IsExpanded.ContainsKey(item.Identifier))
+            {
+                IsExpanded.Add(item.Identifier, false);
+            }
+
+            <div class="event @(IsExpanded[item.Identifier] ? "expanded" : "")">
+                <div class="header" @onclick=@(()=> ExpandEvent(item.Identifier))>
+                    @item.Name
+                    <i>expand_less</i>
+                </div>
+                <div class="content">
+                    <div class="row">
+                        Broadcast event
+                        <Discord.UI.Utils.Checkbox checked="@item.Broadcast" ValueChanged="@((bool value) => SaveBroadCast(item.Identifier, value))"></Discord.UI.Utils.Checkbox>
+                    </div>
+                    <div class="row">
+                        Display as Embed
+                        <Discord.UI.Utils.Checkbox checked="@item.DisplayEmbed" ValueChanged="@((bool value) => SaveDisplayEmbed(item.Identifier, value))"></Discord.UI.Utils.Checkbox>
+                    </div>
+                    <div class="row">
+                        Embed color (HEX without #)
+                        <div class="colorentry">
+                            <TextEntry MaxLength=@(16) Value="@item.HexColorEmbed" OnTextEdited=@((string value) => SaveEmbedColor(item.Identifier, value))></TextEntry>
+                            <div tooltip="@item.HexColorEmbed" style="background-color: #@item.HexColorEmbed" class="colorbox"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        Pass this event through the bot token
+                        <Discord.UI.Utils.Checkbox checked="@item.UseAsBot" ValueChanged="@((bool value) => SaveUseAsBot(item.Identifier, value))"></Discord.UI.Utils.Checkbox>
+                    </div>
+                    <div class="row">
+                        Channel ID
+                        <TextEntry Value="@item.ChannelID.ToString()" OnTextEdited=@((string value) => SaveChannelID(item.Identifier, value.ToLong()))></TextEntry>
+                    </div>
+                    <div class="row">
+                        Webhook URL
+                        <TextEntry Value="@(item.Webhook is null ? "" : item.Webhook)" OnTextEdited=@((string value) => SaveWebhook(item.Identifier, value))></TextEntry>
+                    </div>
+                </div>
+            </div>
+        }
+    </body>
+</root>
+
+@code {
+    Dictionary<string, bool> IsExpanded { get; set; } = new();
+
+    public EventsPage()
+    {
+    }
+
+    public void ValueChanged(bool value)
+    {
+        Log.Info(value);
+    }
+
+    void ExpandEvent( string identifier )
+    {
+        IsExpanded[identifier] = !IsExpanded[identifier];
+    }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine(DateTime.Now.ToString());
+    }
+}

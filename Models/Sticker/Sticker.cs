@@ -1,8 +1,7 @@
-﻿using DiscordAPI.Enums;
-using System.Collections.Generic;
+﻿using Discord.Enums;
 using System.Text.Json.Serialization;
 
-namespace DiscordAPI.Models;
+namespace Discord.Models;
 
 public class Sticker
 {
@@ -10,13 +9,13 @@ public class Sticker
 	/// Id of the sticker
 	/// </summary>
 	[JsonPropertyName( "id" )]
-	public long Id { get; set; }
+	public object Id { get; set; } = null;
 
 	/// <summary>
 	/// For standard stickers, id of the pack the sticker is from
 	/// </summary>
 	[JsonPropertyName( "pack_id" )]
-	public long? PackID { get; set; }
+	public object PackID { get; set; } = null;
 
 	/// <summary>
 	/// Name of the sticker
@@ -58,12 +57,12 @@ public class Sticker
 	///	Id of the guild that owns this sticker
 	/// </summary>
 	[JsonPropertyName( "guild_id" )]
-	public long? GuildID { get; set; }
+	public object GuildID { get; set; } = null;
 
 	/// <summary>
 	///	The user that uploaded the guild sticker
 	/// </summary>
-	[JsonPropertyName( "guild_id" )]
+	[JsonPropertyName( "user_id" )]
 	public User user { get; set; } = null;
 
 	/// <summary>
