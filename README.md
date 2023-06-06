@@ -16,7 +16,7 @@ This library has been made to manage / announce your server informations to a di
  - S&Box editor -> 
  - Right click on your gamemode ->
  - Project Settings -> 
- - Packages -> 
+ - Packages
  - Click on + and enter (eurorp.discord_api_utility) without ```( )```
 
 > After we need to add the api uri's to the whitelist of your gamemode
