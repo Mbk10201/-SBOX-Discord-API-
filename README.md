@@ -4,7 +4,7 @@
 
 <h1>Official support</h1>
 
-- [x] Websocket
+- #ffffff[x] Websocket
 - [x] Client websocket
 - [ ] Add delight to the experience when all tasks are complete :tada:
 
