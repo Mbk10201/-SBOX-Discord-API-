@@ -9,11 +9,17 @@
 
 > First you have to add the library reference to your gamemode
  - S&Box editor -> 
- - Right click on your project ->
+ - Right click on your gamemode ->
  - Project Settings -> 
- - Packages -> Add new (eurorp.discord_api_utility)
+ - Packages -> 
+ - Click on + and enter (eurorp.discord_api_utility) without ```( )```
 
-!! Don't forget to add the discord api urls to the HTTP whitelist of your game mode - https://discord.com/api/ - wss://gateway.discord.gg/
+> After we need to add the api urls to the whitelist of your gamemode
+ - S&Box editor -> 
+ - Right click on your gamede ->
+ - Project Settings ->
+ - Http
+ - Click on + and write (https://discord.com/api/) & (wss://gateway.discord.gg/) without the ```( )```
 
 First step to use it, open the UI, go to Token page and set up your token or if you want to use the webhook service instead, go to the event page and configure them by your taste.
 
