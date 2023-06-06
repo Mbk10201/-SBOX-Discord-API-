@@ -26,7 +26,7 @@ This library has been made to manage / announce your server informations to a di
  - Http
  - Click on + and write (https://discord.com/api/) & (wss://gateway.discord.gg/) without the ```( )```
 
-<h1>Now you need to configure it</h1>
+> Now you need to configure 
  - Open the UI in the game ->
  - Go to Token page and set up your token ->
  - If you want to use the webhook service instead, go to the event page and configure them by your taste.
