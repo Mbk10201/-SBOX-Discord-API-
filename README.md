@@ -17,11 +17,11 @@ This library has been made to manage / announce your server informations to a di
  - Right click on your gamemode ->
  - Project Settings -> 
  - Packages
- - Click on + and enter (eurorp.discord_api_utility) without ```( )```
+ - Click on + and enter (mbk.discord_api) without ```( )```
 
 > After we need to add the api uri's to the whitelist of your gamemode
  - S&Box editor -> 
- - Right click on your gamede ->
+ - Right click on your gamemode ->
  - Project Settings ->
  - Http
  - Click on + and write (https://discord.com/api/) & (wss://gateway.discord.gg/) without the ```( )```
