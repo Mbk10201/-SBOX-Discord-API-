@@ -3,8 +3,8 @@
 
 
 <h1>Official support</h1>
-- [x] Websocket
-- [x] Client websocket
+[x] Websocket
+[x] Client websocket
 
 <h1>Description</h1>
 There is by default game events hooked such as Client Connect & Client Left.
