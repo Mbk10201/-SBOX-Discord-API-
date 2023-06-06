@@ -9,9 +9,9 @@
 ```
 First you have to add the library reference to your gamemode
  - S&Box editor -> 
- * Right click on your project ->
- + Project Settings -> 
- + Packages -> Add new (eurorp.discord_api_utility)
+ - Right click on your project ->
+ - Project Settings -> 
+ - Packages -> Add new (eurorp.discord_api_utility)
 
 !! Don't forget to add the discord api urls to the HTTP whitelist of your game mode - https://discord.com/api/ - wss://gateway.discord.gg/
 
