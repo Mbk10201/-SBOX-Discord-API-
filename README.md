@@ -39,4 +39,3 @@ Everything is customisable the UI Settings by pressing 'Slot9' key.
 This library is still in massive development so if you encounter any problems, you are free to make a issue.
 
 <h1>Screenshots</h1>
-![](https://cdn.discordapp.com/attachments/1111078058640809984/1111078062734454835/Capture_decran_2023-05-25_013127.png)
