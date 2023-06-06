@@ -24,7 +24,7 @@ Everything is customisable the UI Settings by pressing 'Slot0' key.
  - Packages -> 
  - Click on + and enter (eurorp.discord_api_utility) without ```( )```
 
-> After we need to add the api urls to the whitelist of your gamemode
+> After we need to add the api uri's to the whitelist of your gamemode
  - S&Box editor -> 
  - Right click on your gamede ->
  - Project Settings ->
