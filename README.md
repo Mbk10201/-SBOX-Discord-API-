@@ -5,7 +5,7 @@
 
 
 
-> How to install
+> <h1>How to install</h1>
 ```
 First you have to add the library reference to your gamemode
  - S&Box editor -> Right click on your project -> Project Settings -> Packages -> Add new (eurorp.discord_api_utility)
