@@ -8,7 +8,10 @@
 > <h1>How to install</h1>
 ```
 First you have to add the library reference to your gamemode
- - S&Box editor -> Right click on your project -> Project Settings -> Packages -> Add new (eurorp.discord_api_utility)
+ - S&Box editor -> 
+ * Right click on your project ->
+ + Project Settings -> 
+ + Packages -> Add new (eurorp.discord_api_utility)
 
 !! Don't forget to add the discord api urls to the HTTP whitelist of your game mode - https://discord.com/api/ - wss://gateway.discord.gg/
 
@@ -21,4 +24,4 @@ Everything is customisable the UI Settings by pressing 'Slot0' key.
 [WARN] This library is still in massive development so if you encounter any problems, you are free to make a issue on github
 ```
 
-<div align="center">![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://myoctocat.com/assets/images/base-octocat.svg)</div>
+![]([https://myoctocat.com/assets/images/base-octocat.svg](https://cdn.discordapp.com/attachments/1111078058640809984/1111078062734454835/Capture_decran_2023-05-25_013127.png))
