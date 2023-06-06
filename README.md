@@ -6,7 +6,6 @@
 
 - [x] Websocket
 - [x] Client websocket
-- [ ] Add delight to the experience when all tasks are complete :tada:
 
 <h1>Description</h1>
 There is by default game events hooked such as Client Connect & Client Left.
