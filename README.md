@@ -8,9 +8,7 @@
 - [x] Client websocket
 
 <h1>Description</h1>
-There is by default game events hooked such as Client Connect & Client Left.
-
-Everything is customisable the UI Settings by pressing 'Slot0' key.
+This library has been made to manage / announce your server informations to a discord server and vice versa.
 
 <h1>How to install</h1>
 
@@ -34,7 +32,11 @@ Everything is customisable the UI Settings by pressing 'Slot0' key.
  - If you want to use the webhook service instead, go to the event page and configure them by your taste.
 
 <h1>Informations</h1>
+There is by default game events hooked such as Client Connect & Client Left.
+
+Everything is customisable the UI Settings by pressing 'Slot9' key.
+
 This library is still in massive development so if you encounter any problems, you are free to make a issue.
 
 <h1>Screenshots</h1>
-![]([https://myoctocat.com/assets/images/base-octocat.svg](https://cdn.discordapp.com/attachments/1111078058640809984/1111078062734454835/Capture_decran_2023-05-25_013127.png))
+![Image une.]([https://cdn.discordapp.com/attachments/1111078058640809984/1111078062734454835/Capture_decran_2023-05-25_013127.png](https://cdn.discordapp.com/attachments/1111078058640809984/1111078062734454835/Capture_decran_2023-05-25_013127.png))
