@@ -3,11 +3,9 @@
 
 
 <h1>Official support</h1>
-[x] Websocket
-[x] Client websocket
 
-- [x] #739
-- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [x] Websocket
+- [x] Client websocket
 - [ ] Add delight to the experience when all tasks are complete :tada:
 
 <h1>Description</h1>
@@ -36,6 +34,8 @@ Everything is customisable the UI Settings by pressing 'Slot0' key.
  - Go to Token page and set up your token ->
  - If you want to use the webhook service instead, go to the event page and configure them by your taste.
 
-[WARN] This library is still in massive development so if you encounter any problems, you are free to make a issue
+<h1>Informations</h1>
+This library is still in massive development so if you encounter any problems, you are free to make a issue.
 
+<h1>Screenshots</h1>
 ![]([https://myoctocat.com/assets/images/base-octocat.svg](https://cdn.discordapp.com/attachments/1111078058640809984/1111078062734454835/Capture_decran_2023-05-25_013127.png))
