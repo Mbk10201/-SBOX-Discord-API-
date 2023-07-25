@@ -70,7 +70,7 @@ public partial class Client
 		{
 			case OPCodeTypes.DISPATCH:
 			{
-				switch( payload.EventName)
+				switch( payload.EventName )
 				{
 					case "READY":
 					{

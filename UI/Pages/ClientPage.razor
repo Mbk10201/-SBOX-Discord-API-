@@ -67,13 +67,14 @@
         if (firstTime)
         {
             Guild = Client.Instance?.Guild;
+        }
 
-            foreach (var channel in Guild.Channels)
-            {
-                Log.Info(channel);
-                Log.Info(channel.Id);
-                Log.Info(channel.Name);
-            }
+        foreach (var channel in Guild.Channels)
+        {
+            Log.Info(Guild);
+            Log.Info(channel);
+            Log.Info(channel.Id);
+            Log.Info(channel.Name);
         }
     }
 }

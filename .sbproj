@@ -3,11 +3,12 @@
   "Type": "library",
   "Org": "mbk",
   "Ident": "discord_api",
-  "Tags": null,
+  "Tags": "discord utility library webhook socket live messages roleplay murder",
   "Schema": 1,
   "HasAssets": true,
   "AssetsPath": "",
-  "ResourcePaths": [],
+  "Resources": null,
+  "MenuResources": null,
   "HasCode": true,
   "CodePath": ".",
   "PackageReferences": [
@@ -25,6 +26,7 @@
       "RootNamespace": "Discord",
       "DefineConstants": "SANDBOX;ADDON;DEBUG",
       "NoWarn": "1701;1702;1591;",
+      "ReleaseMode": "Release",
       "References": [],
       "DistinctReferences": []
     }

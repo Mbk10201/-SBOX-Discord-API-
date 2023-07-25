@@ -23,10 +23,10 @@ public partial class Client
 		if (Instance.Token.Length > 72)
 			return false;
 
-		if ( IsRegexValid( Instance.Token ) )
-			return false;
-		else
-			return true;
+		/*if ( IsRegexValid( Instance.Token ) )
+			return false;*/ // TO FIX
+			
+		return true;
 	}
 
 	public static bool IsRegexValid(string token)
