@@ -23,7 +23,7 @@
     "Public": true,
     "ReplaceTags": "discord roleplay facepunch darkrp french map api addon",
     "Compiler": {
-      "RootNamespace": "Discord",
+      "RootNamespace": "Mbk.Discord",
       "DefineConstants": "SANDBOX;ADDON;DEBUG",
       "NoWarn": "1701;1702;1591;",
       "ReleaseMode": "Release",

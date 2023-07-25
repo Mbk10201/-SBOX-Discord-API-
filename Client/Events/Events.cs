@@ -1,4 +1,4 @@
-﻿namespace Discord;
+﻿namespace Mbk.Discord;
 
 public partial class Client
 {

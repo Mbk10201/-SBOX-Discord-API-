@@ -1,8 +1,8 @@
-﻿using Discord.Enums;
+﻿using Mbk.Discord.Enums;
 using Sandbox;
 using System.Text.Json.Serialization;
 
-namespace Discord.Models;
+namespace Mbk.Discord.Models;
 
 public class VoiceState
 {

@@ -1,10 +1,10 @@
-﻿using Discord.Enums;
-using Discord.Models;
-using Discord.Utility;
+﻿using Mbk.Discord.Enums;
+using Mbk.Discord.Models;
+using Mbk.Discord.Utility;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 
-namespace Discord;
+namespace Mbk.Discord;
 
 public partial class Client
 {

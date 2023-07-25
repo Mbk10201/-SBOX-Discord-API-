@@ -1,4 +1,4 @@
-﻿namespace Discord.UI.Utils;
+﻿namespace Mbk.Discord.UI.Utils;
 
 /// <summary>
 /// A panel that will navigate to an href but also have .active class if href is active

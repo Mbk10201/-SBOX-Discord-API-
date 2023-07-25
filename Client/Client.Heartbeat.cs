@@ -1,8 +1,8 @@
-﻿using Discord.Enums;
-using Discord.Models;
-using Discord.Utility;
+﻿using Mbk.Discord.Enums;
+using Mbk.Discord.Models;
+using Mbk.Discord.Utility;
 
-namespace Discord;
+namespace Mbk.Discord;
 
 public partial class Client
 {

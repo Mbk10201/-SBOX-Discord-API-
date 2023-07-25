@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Text.Json;
 
-namespace Discord.Utility;
+namespace Mbk.Discord.Utility;
 
 internal static class JsonUtility
 {

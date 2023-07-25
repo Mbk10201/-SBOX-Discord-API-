@@ -1,4 +1,4 @@
-﻿namespace Discord.UI;
+﻿namespace Mbk.Discord.UI;
 
 public partial class EventsPage 
 {

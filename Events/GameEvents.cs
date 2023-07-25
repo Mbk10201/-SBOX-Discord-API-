@@ -1,7 +1,7 @@
-﻿using Discord.Attributes;
-using Discord.Models;
+﻿using Mbk.Discord.Attributes;
+using Mbk.Discord.Models;
 
-namespace Discord;
+namespace Mbk.Discord;
 
 public static class GameEvents
 {

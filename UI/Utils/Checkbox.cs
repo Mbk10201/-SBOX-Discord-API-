@@ -1,6 +1,6 @@
 ﻿using Sandbox.UI.Construct;
 
-namespace Discord.UI.Utils;
+namespace Mbk.Discord.UI.Utils;
 
 [Library( "checkbox" )]
 public class Checkbox : Panel

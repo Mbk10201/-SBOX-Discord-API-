@@ -1,6 +1,6 @@
-﻿using Discord.Models;
+﻿using Mbk.Discord.Models;
 
-namespace Discord;
+namespace Mbk.Discord;
 
 public static partial class Webhook
 {

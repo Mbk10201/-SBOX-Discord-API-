@@ -1,4 +1,4 @@
-﻿namespace Discord.Enums;
+﻿namespace Mbk.Discord.Enums;
 
 public enum PrivacyLevelTypes
 {

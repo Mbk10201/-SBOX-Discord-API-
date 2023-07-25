@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Discord.Models;
+namespace Mbk.Discord.Models;
 
 public partial class DefaultReaction : BaseNetworkable
 {

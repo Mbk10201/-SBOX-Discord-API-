@@ -1,4 +1,4 @@
-﻿namespace Discord.Attributes;
+﻿namespace Mbk.Discord.Attributes;
 
 [AttributeUsage( AttributeTargets.Method )]
 public class DiscordGameEvent : Attribute

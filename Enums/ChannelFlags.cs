@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Discord.Enums;
+namespace Mbk.Discord.Enums;
 
 [Flags]
 public enum ChannelFlags

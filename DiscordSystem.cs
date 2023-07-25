@@ -1,9 +1,9 @@
-﻿using Discord.Attributes;
-using Discord.Models;
-using Discord.UI;
+﻿using Mbk.Discord.Attributes;
+using Mbk.Discord.Models;
+using Mbk.Discord.UI;
 using System.ComponentModel.DataAnnotations;
 
-namespace Discord;
+namespace Mbk.Discord;
 
 [Library(Title = "Discord")]
 [Display( Name = "Discord" ), Category( "Discord" ), Icon( "webhook" )]

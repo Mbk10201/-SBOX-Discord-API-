@@ -1,4 +1,4 @@
-﻿namespace Discord.UI.Utils;
+﻿namespace Mbk.Discord.UI.Utils;
 
 /// <summary>
 /// A panel that acts like a website. A single page is always visible

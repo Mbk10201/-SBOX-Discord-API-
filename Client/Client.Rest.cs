@@ -1,8 +1,8 @@
-﻿using Discord.Models;
+﻿using Mbk.Discord.Models;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 
-namespace Discord;
+namespace Mbk.Discord;
 
 public partial class Client
 {

@@ -1,9 +1,9 @@
-﻿using Discord.Enums;
+﻿using Mbk.Discord.Enums;
 using Sandbox;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Discord.Models;
+namespace Mbk.Discord.Models;
 
 public partial class GuildMember : BaseNetworkable
 {

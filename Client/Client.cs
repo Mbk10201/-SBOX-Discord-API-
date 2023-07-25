@@ -1,7 +1,7 @@
-﻿using Discord.Models;
+﻿using Mbk.Discord.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace Discord;
+namespace Mbk.Discord;
 
 [Library( Title = "Client" )]
 [Display( Name = "Client" ), Category( "Discord" ), Icon( "smart_toy" )]
