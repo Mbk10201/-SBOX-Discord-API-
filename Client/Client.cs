@@ -13,7 +13,7 @@ public partial class Client : Entity
 	/// <summary>
 	///	The current bot token
 	/// </summary>
-	[Net, Change] public string Token { get; set; }
+	[Net, Change, Local, HideInEditor] public string Token { get; set; }
 
 	/// <summary>
 	///	Is token valid or not

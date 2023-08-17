@@ -7,7 +7,7 @@ public class DiscordGameEvent : Attribute
 	public string Identifier { get; set; }
 	public string Description { get; set; }
 
-	public DiscordGameEvent( string name, string identifier, string description)
+	public DiscordGameEvent( string name, string identifier, string description )
 	{
 		Name = name;
 		Identifier = identifier;
